@@ -4,3 +4,5 @@
  Výstup programu je ve formě série grafů, které jsou zobrazovány postupně, pro zobrazení následujícího grafu zmáčkněte ENTER.  
  V dolní části skriptu main() je sekce pro ukldání výsledků do přiložené složky graphs.  
  Pokud budete chít využít této možnosti je třeba v sekci odstranit zakomentování.  
+
+ POZOR: Díky užití funkce sgtitle() je třeba Matlab2019 nebo výše
