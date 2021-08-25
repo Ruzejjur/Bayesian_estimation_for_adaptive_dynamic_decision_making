@@ -18,7 +18,7 @@ function main(S, A, impression_price, num_of_auctions, seed)
 %
 % created: JR, 2021
 %
-% related to project "Bayesian estimation for adaptive dynamic decision making", BP J.Ruûejnikov
+% related to project "Bayesian estimation for adaptive dynamic decision making", BP J.Ru≈æejnikov
 %% Intialisation
     close all
     format long
@@ -52,11 +52,11 @@ function main(S, A, impression_price, num_of_auctions, seed)
      [immediate_reward_const, accum_reward_const] = strat_eval(S, A, impress_price_vec_const, states_const, const_strat);
      
 %     With fixed impression_price and with 200 steps exploration
-     [immediate_reward_opt_gen_200, accum_reward_opt_gen_200] = strat_eval(S, A, impress_price_vec_rand, states_opt_gen_200, opt_strat_gen_200);
-     [immediate_reward_opt_pred_200, accum_reward_opt_pred_200] = strat_eval(S, A, impress_price_vec_rand, states_opt_pred_200, opt_strat_pred_200); 
-     [immediate_reward_rand_200, accum_reward_rand_200] = strat_eval(S, A, impress_price_vec_rand,  states_rand_200, rand_strat_200); 
+     [immediate_reward_opt_gen_200, accum_reward_opt_gen_200] = strat_eval(S, A, impress_price_vec_const, states_opt_gen_200, opt_strat_gen_200);
+     [immediate_reward_opt_pred_200, accum_reward_opt_pred_200] = strat_eval(S, A, impress_price_vec_const, states_opt_pred_200, opt_strat_pred_200); 
+     [immediate_reward_rand_200, accum_reward_rand_200] = strat_eval(S, A, impress_price_vec_const,  states_rand_200, rand_strat_200); 
       predicted_model = data_collector(ns,na,states_rand_200_rp,rand_strat_200_rp); %calculating the model from the data are truly without generated model to check if the data are truly generated from generated_model
-     [immediate_reward_const_200, accum_reward_const_200] = strat_eval(S, A, impress_price_vec_rand, states_const_200, const_strat_200);
+     [immediate_reward_const_200, accum_reward_const_200] = strat_eval(S, A, impress_price_vec_const, states_const_200, const_strat_200);
      
      
 %    With random seeded impression price and with uniform initialized model for prediction
@@ -76,7 +76,7 @@ function main(S, A, impression_price, num_of_auctions, seed)
 %% Debug info 1: for large number_of_auctions: uncomment at your own discretion
 %       fprintf("State values: \n")
 %       display(V_k)
-%       fprintf("N·hodn· strategie: \n")
+%       fprintf("N√°hodn√° strategie: \n")
 %       disp(rand_strat)
 %       fprintf("Optimal strategy: \n")
 %       disp(opt_strat)
@@ -196,30 +196,30 @@ function main(S, A, impression_price, num_of_auctions, seed)
     
         subplot(3,3,[1,3])
         plot(time1, accum_reward_opt_gen, 'b',time1, accum_reward_opt_pred, 'g', time1, accum_reward_rand, 'r')
-        str = sprintf("Akumulovan· odmÏna");
+        str = sprintf("Akumulovan√° odm√¨na");
         title(str)
-        xlabel("»as t")
-        ylabel("Akumulovan· odmÏna")
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','northwest')
+        xlabel("√àas t")
+        ylabel("Akumulovan√° odm√¨na")
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','northwest')
         grid on
         
         subplot(3,3,[4,6])
         plot(time1, accum_reward_opt_gen, 'b',time1, accum_reward_opt_pred, 'g', time1, accum_reward_rand, 'r')
-        str = sprintf("Akumulovan· odmÏna: prvnÌch 600 krok˘");
+        str = sprintf("Akumulovan√° odm√¨na: prvn√≠ch 600 krok√π");
         title(str)
-        xlabel("»as t")
-        ylabel("Akumulovan· odmÏna")
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','northwest')
+        xlabel("√àas t")
+        ylabel("Akumulovan√° odm√¨na")
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','northwest')
         xlim(x_lim)
         grid on
 
         subplot(3,3,[7,9])
         plot(time1, immediate_reward_opt_gen, 'bo', time1, immediate_reward_opt_pred, 'go', time1, immediate_reward_rand, 'ro')
-        str = sprintf("Okamûit· odmÏna");
+        str = sprintf("Okam≈æit√° odm√¨na");
         title(str)
-        xlabel("»as t")
-        ylabel("Okamûit· odmÏna")
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','best','Orientation','horizontal')
+        xlabel("√àas t")
+        ylabel("Okam≈æit√° odm√¨na")
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','best','Orientation','horizontal')
         xlim(x_lim)
         grid on
 
@@ -236,32 +236,32 @@ function main(S, A, impression_price, num_of_auctions, seed)
         plot(time2, states_opt_gen, 'bo', time2, states_opt_pred, 'go', time2, states_rand, 'ro')
         str = sprintf("Stavy");
         title(str)
-        xlabel("»as t")
+        xlabel("√àas t")
         ylabel("Stav")
         xlim(x_lim)
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','northwest','Orientation','horizontal')
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','northwest','Orientation','horizontal')
         grid on
 
         subplot(2,3,4)
         plot(time1, opt_strat_gen,'b*')
-        title('Opt strat s perfektnÌm modelem')
-        xlabel("»as t")
+        title('Opt strat s perfektn√≠m modelem')
+        xlabel("√àas t")
         ylabel("Akce")
         xlim(x_lim)
         grid on
 
         subplot(2,3,5)
         plot(time1, opt_strat_pred,'g*')
-        title('Opt strat s odhadnut˝m modelem')
-        xlabel("»as t")
+        title('Opt strat s odhadnut√Ωm modelem')
+        xlabel("√àas t")
         ylabel("")
         xlim(x_lim)
         grid on
 
         subplot(2,3,6)
         plot(time1, rand_strat,'r*')
-        title('N·hodn· strategie')
-        xlabel("»as t")
+        title('N√°hodn√° strategie')
+        xlabel("√àas t")
         ylabel("")
         xlim(x_lim)
         grid on
@@ -276,31 +276,31 @@ function main(S, A, impression_price, num_of_auctions, seed)
     
         subplot(3,3,[1,3])
         plot(time1, accum_reward_opt_gen_rp, 'b',time1, accum_reward_opt_pred_rp, 'g', time1, accum_reward_rand_rp, 'r')
-        str = sprintf("Akumulovan· odmÏna");
+        str = sprintf("Akumulovan√° odm√¨na");
         title(str)
-        xlabel("»as t")
-        ylabel("Akumulovan· odmÏna")
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','northwest')
+        xlabel("√àas t")
+        ylabel("Akumulovan√° odm√¨na")
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','northwest')
         grid on
         
         subplot(3,3,[4,6])
         plot(time1, accum_reward_opt_gen_rp, 'b',time1, accum_reward_opt_pred_rp, 'g', time1, accum_reward_rand_rp, 'r')
-        str = sprintf("Akumulovan· odmÏna");
+        str = sprintf("Akumulovan√° odm√¨na");
         title(str)
-        xlabel("»as t")
-        ylabel("Akumulovan· odmÏna")
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','northwest')
+        xlabel("√àas t")
+        ylabel("Akumulovan√° odm√¨na")
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','northwest')
         xlim(x_lim)
         grid on
 
 
         subplot(3,3,[7,9])
         plot(time1, immediate_reward_opt_gen_rp, 'bo', time1, immediate_reward_opt_pred_rp, 'go', time1, immediate_reward_rand_rp, 'ro')
-        str = sprintf("Okamûit· odmÏna");
+        str = sprintf("Okam≈æit√° odm√¨na");
         title(str)
-        xlabel("»as t")
-        ylabel("Okamûit· odmÏna")
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','best','Orientation','horizontal')
+        xlabel("√àas t")
+        ylabel("Okam≈æit√° odm√¨na")
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','best','Orientation','horizontal')
         xlim(x_lim)
         grid on
      
@@ -314,34 +314,34 @@ function main(S, A, impression_price, num_of_auctions, seed)
     
         subplot(2,3,[1,3])
         plot(time2, states_opt_gen_rp, 'bo', time2, states_opt_pred_rp, 'go', time2, states_rand_rp, 'ro')
-        str = sprintf("Stavy v Ëase t");
+        str = sprintf("Stavy v √®ase t");
         title(str)
-        xlabel("»as t")
+        xlabel("√àas t")
         ylabel("Stav")
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','best','Orientation','horizontal')
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','best','Orientation','horizontal')
         xlim(x_lim)
         grid on
 
         subplot(2,3,4)
         plot(time1, opt_strat_gen_rp,'b*')
-        title('Opt strat s perfektnÌm modelem')
-        xlabel("»as t")
+        title('Opt strat s perfektn√≠m modelem')
+        xlabel("√àas t")
         ylabel("Akce")
         xlim(x_lim)
         grid on
 
         subplot(2,3,5)
         plot(time1, opt_strat_pred_rp,'g*')
-        title('Opt strat s odhadnut˝m modelem')
-        xlabel("»as t")
+        title('Opt strat s odhadnut√Ωm modelem')
+        xlabel("√àas t")
         ylabel("")
         xlim(x_lim)
         grid on
 
         subplot(2,3,6)
         plot(time1, rand_strat_rp,'r*')
-        title('N·hodn· strategie')
-        xlabel("»as t")
+        title('N√°hodn√° strategie')
+        xlabel("√àas t")
         ylabel("")
         xlim(x_lim)
         grid on
@@ -356,30 +356,30 @@ function main(S, A, impression_price, num_of_auctions, seed)
     
         subplot(3,3,[1,3])
         plot(time1, accum_reward_opt_gen_200, 'b',time1, accum_reward_opt_pred_200, 'g', time1, accum_reward_rand_200, 'r')
-        str = sprintf("Akumulovan· odmÏna");
+        str = sprintf("Akumulovan√° odm√¨na");
         title(str)
-        xlabel("»as t")
-        ylabel("Akumulovan· odmÏna")
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','northwest')
+        xlabel("√àas t")
+        ylabel("Akumulovan√° odm√¨na")
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','northwest')
         grid on
         
         subplot(3,3,[4,6])
         plot(time1, accum_reward_opt_gen_200, 'b',time1, accum_reward_opt_pred_200, 'g', time1, accum_reward_rand_200, 'r')
-        str = sprintf("Akumulovan· odmÏna: prvnÌch 600 krok˘");
+        str = sprintf("Akumulovan√° odm√¨na: prvn√≠ch 600 krok√π");
         title(str)
-        xlabel("»as t")
-        ylabel("Akumulovan· odmÏna")
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','northwest')
+        xlabel("√àas t")
+        ylabel("Akumulovan√° odm√¨na")
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','northwest')
         xlim(x_lim)
         grid on
 
         subplot(3,3,[7,9])
         plot(time1, immediate_reward_opt_gen_200, 'bo', time1, immediate_reward_opt_pred_200, 'go', time1, immediate_reward_rand_200, 'ro')
-        str = sprintf("Okamûit· odmÏna");
+        str = sprintf("Okam≈æit√° odm√¨na");
         title(str)
-        xlabel("»as t")
-        ylabel("Okamûit· odmÏna")
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','best','Orientation','horizontal')
+        xlabel("√àas t")
+        ylabel("Okam≈æit√° odm√¨na")
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','best','Orientation','horizontal')
         xlim(x_lim)
         grid on
 
@@ -394,34 +394,34 @@ function main(S, A, impression_price, num_of_auctions, seed)
     
         subplot(2,3,[1,3])
         plot(time2, states_opt_gen_200, 'bo', time2, states_opt_pred_200, 'go', time2, states_rand_200, 'ro')
-        str = sprintf("Stavy v Ëase t");
+        str = sprintf("Stavy v √®ase t");
         title(str)
-        xlabel("»as t")
+        xlabel("√àas t")
         ylabel("Stav")
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','best','Orientation','horizontal')
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','best','Orientation','horizontal')
         xlim(x_lim)
         grid on
 
         subplot(2,3,4)
         plot(time1, opt_strat_gen_200,'b*')
-        title('Opt strat s perfektnÌm modelem')
-        xlabel("»as t")
+        title('Opt strat s perfektn√≠m modelem')
+        xlabel("√àas t")
         ylabel("Akce")
         xlim(x_lim)
         grid on
 
         subplot(2,3,5)
         plot(time1, opt_strat_pred_200,'g*')
-        title('Opt strat s odhadnut˝m modelem')
-        xlabel("»as t")
+        title('Opt strat s odhadnut√Ωm modelem')
+        xlabel("√àas t")
         ylabel("")
         xlim(x_lim)
         grid on
 
         subplot(2,3,6)
         plot(time1, rand_strat_200,'r*')
-        title('N·hodn· strategie')
-        xlabel("»as t")
+        title('N√°hodn√° strategie')
+        xlabel("√àas t")
         ylabel("")
         xlim(x_lim)
         grid on
@@ -436,30 +436,30 @@ function main(S, A, impression_price, num_of_auctions, seed)
     
         subplot(3,3,[1,3])
         plot(time1, accum_reward_opt_gen_200_rp, 'b',time1, accum_reward_opt_pred_200_rp, 'g', time1, accum_reward_rand_200_rp, 'r')
-        str = sprintf("Akumulovan· odmÏna");
+        str = sprintf("Akumulovan√° odm√¨na");
         title(str)
-        xlabel("»as t")
-        ylabel("Akumulovan· odmÏna")
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','northwest')
+        xlabel("√àas t")
+        ylabel("Akumulovan√° odm√¨na")
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','northwest')
         grid on
         
         subplot(3,3,[4,6])
         plot(time1, accum_reward_opt_gen_200_rp, 'b',time1, accum_reward_opt_pred_200_rp, 'g', time1, accum_reward_rand_200_rp, 'r')
-        str = sprintf("Akumulovan· odmÏna: prvnÌch 600 krok˘");
+        str = sprintf("Akumulovan√° odm√¨na: prvn√≠ch 600 krok√π");
         title(str)
-        xlabel("»as t")
-        ylabel("Akumulovan· odmÏna")
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','northwest')
+        xlabel("√àas t")
+        ylabel("Akumulovan√° odm√¨na")
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','northwest')
         xlim(x_lim)
         grid on
 
         subplot(3,3,[7,9])
         plot(time1, immediate_reward_opt_gen_200_rp, 'bo', time1, immediate_reward_opt_pred_200_rp, 'go', time1, immediate_reward_rand_200_rp, 'ro')
-        str = sprintf("Okamûit· odmÏna");
+        str = sprintf("Okam≈æit√° odm√¨na");
         title(str)
-        xlabel("»as t")
-        ylabel("Okamûit· odmÏna")
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','best','Orientation','horizontal')
+        xlabel("√àas t")
+        ylabel("Okam≈æit√° odm√¨na")
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','best','Orientation','horizontal')
         xlim(x_lim)
         grid on
 
@@ -474,34 +474,34 @@ function main(S, A, impression_price, num_of_auctions, seed)
     
         subplot(2,3,[1,3])
         plot(time2, states_opt_gen_200_rp, 'bo', time2, states_opt_pred_200_rp, 'go', time2, states_rand_200_rp, 'ro')
-        str = sprintf("Stavy v Ëase t");
+        str = sprintf("Stavy v √®ase t");
         title(str)
-        xlabel("»as t")
+        xlabel("√àas t")
         ylabel("Stav")
-        legend("Opt strat s perfektnÌm modelem","Opt strat s odhadnut˝m modelem","N·hodn· strategie",'Location','best','Orientation','horizontal')
+        legend("Opt strat s perfektn√≠m modelem","Opt strat s odhadnut√Ωm modelem","N√°hodn√° strategie",'Location','best','Orientation','horizontal')
         xlim(x_lim)
         grid on
 
         subplot(2,3,4)
         plot(time1, opt_strat_gen_200_rp,'b*')
-        title('Opt strat s perfektnÌm modelem')
-        xlabel("»as t")
+        title('Opt strat s perfektn√≠m modelem')
+        xlabel("√àas t")
         ylabel("Akce")
         xlim(x_lim)
         grid on
 
         subplot(2,3,5)
         plot(time1, opt_strat_pred_200_rp,'g*')
-        title('Opt strat s odhadnut˝m modelem')
-        xlabel("»as t")
+        title('Opt strat s odhadnut√Ωm modelem')
+        xlabel("√àas t")
         ylabel("")
         xlim(x_lim)
         grid on
 
         subplot(2,3,6)
         plot(time1, rand_strat_200_rp,'r*')
-        title('N·hodn· strategie')
-        xlabel("»as t")
+        title('N√°hodn√° strategie')
+        xlabel("√àas t")
         ylabel("")
         xlim(x_lim)
         grid on
